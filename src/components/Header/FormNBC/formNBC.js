@@ -3,6 +3,7 @@ import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
+import ModalButton from "../ModalButton/modalButton";
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -63,6 +64,12 @@ export default function TextFields() {
   const handleChange = name => event => {
     setValues({ ...values, [name]: event.target.value });
   };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    console.log('Here are the values to be submitted to Firebase', values);
+    console.log('Once you have successfully submitted the form data to Firebase, you can now show a success message and close the modal.')
+  }
 
   return (
     <form className={classes.container} noValidate autoComplete="off">
@@ -147,6 +154,7 @@ export default function TextFields() {
         className={classes.textField}
         margin="normal"
       />
+      <ModalButton onClick={handleSubmit}/>
       {/*Form buraya kadar !*/}
     </form>
   );

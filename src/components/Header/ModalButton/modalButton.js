@@ -21,17 +21,17 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function ModalButton() {
+export default function ModalButton(props) {
   const classes = useStyles();
 
   return (
-    <div className={classes.div}>
+    <button className={classes.div} onClick={props.onClick}>
       <Fab style={{ backgroundColor: "rgb(24,187,156)" }} aria-label="add">
         <NavigationIcon
           style={{ color: "white" }}
           className={classes.extendedIcon}
         />
       </Fab>
-    </div>
+    </button>
   );
 }
